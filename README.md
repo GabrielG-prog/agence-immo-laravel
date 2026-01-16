@@ -1,59 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏠 Agence Immobilière - Projet Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📋 Description du projet
 
-## About Laravel
+Site web fictif d'agence immobilière développé avec Laravel, comprenant une interface publique pour consulter les biens immobiliers et un back-office d'administration complet pour gérer l'ensemble du catalogue.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fonctionnalités principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Front-end
+- Affichage des biens immobiliers disponibles
+- Navigation intuitive et responsive
+- Consultation détaillée des propriétés
 
-## Learning Laravel
+### Back-office (Administration)
+- **Gestion complète des biens** : création, modification, suppression
+- **Validation des formulaires** : règles de validation robustes côté serveur
+- **Pagination** : navigation efficace dans les listes de biens
+- **Interfaces dynamiques réutilisables** : composants modulaires pour une maintenance facilitée
+- **Suppression sécurisée** : protection contre les suppressions accidentelles avec confirmation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Technologies utilisées
 
-## Laravel Sponsors
+- **Framework** : Laravel 12
+- **Base de données** : MySQL
+- **Front-end** : Blade Templates, Bootstrap 5, Tom Select 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 📦 Installation
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Prérequis
+- PHP >= 8.1
+- Composer
+- MySQL 
+- Node.js et NPM (pour la compilation des assets)
 
-## Contributing
+### Étapes d'installation
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### 1. Cloner le repository
+```bash
+git clone https://github.com/GabrielG-prog/agence-immo-laravel
+cd nom-du-projet
+```
 
-## Code of Conduct
+#### 2. Installer les dépendances PHP
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### 3. Installer les dépendances Node.js
+```bash
+npm install
+```
 
-## Security Vulnerabilities
+#### 4. Configurer l'environnement
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 5. Configurer la base de données dans le fichier `.env`
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nom_de_votre_base
+DB_USERNAME=votre_utilisateur
+DB_PASSWORD=votre_mot_de_passe
+```
 
-## License
+#### 6. Exécuter les migrations
+```bash
+php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### 7. (Optionnel) Générer des données de test
+```bash
+php artisan db:seed
+```
+
+#### 8. Compiler les assets
+```bash
+npm run dev
+```
+
+#### 9. Lancer le serveur de développement
+```bash
+php artisan serve
+```
+
+Le site sera accessible sur `http://localhost:8000`
+
+---
+
+## 🗂️ Structure du projet
+
+```
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/     # Contrôleurs (Biens, Admin)
+│   │   └── Requests/        # Validation des formulaires
+│   └── Models/              # Modèles Eloquent
+├── database/
+│   ├── migrations/          # Fichiers de migration
+│   └── seeders/             # Données de test
+├── resources/
+│   ├── views/              # Templates Blade
+│   │   ├── front/          # Vues publiques
+│   │   └── admin/          # Back-office
+│   └── css/                # Styles
+├── routes/
+│   └── web.php             # Routes de l'application
+└── public/                 # Assets publics
+```
+
+---
+
+## 📝 Fonctionnalités détaillées
+
+### Gestion des biens immobiliers
+- Liste paginée avec recherche et filtres
+- Formulaire de création avec validation complète
+- Édition des propriétés existantes
+- Suppression avec confirmation (modal ou alert)
+- Upload d'images (à venir)
+
+### Validation
+Les formulaires incluent des règles de validation pour tous les champs critiques comme le titre, la description, le prix, la surface, etc.
+
+### Composants réutilisables
+Le projet utilise des composants Blade réutilisables pour maintenir un code DRY et faciliter la maintenance.
+
+---
+
+## 🚧 État d'avancement
+
+- [x] Configuration Laravel de base
+- [x] Système d'authentification
+- [x] Modèle et migration Bien immobilier
+- [x] CRUD complet back-office
+- [x] Validation des formulaires
+- [x] Pagination
+- [ ] Interface front-end publique (en cours)
+- [ ] Upload et gestion d'images
+- [ ] Système de recherche avancée
+- [ ] Filtres par type de bien, prix, localisation
+
+---
+
+## 👤 Auteur
+
+Développé par **[Votre Nom]** - Projet d'apprentissage Laravel
+
+---
+
+> **Note** : Ce projet est développé progressivement. Les fonctionnalités sont ajoutées au fur et à mesure. Consultez les branches Git pour voir l'évolution du développement.
